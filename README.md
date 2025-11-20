@@ -33,6 +33,17 @@ src/
 - Inserções iniciais via data.sql
 
 ---
+## ▶️ Como Executar o Projeto
+
+A aplicação pode ser iniciada diretamente via Maven usando o comando:
+```bash
+mvn spring-boot:run
+```
+Requisitos:
+- JDK 21 instalado
+- Maven instalado
+- MySQL rodando
+---
 
 ## 🧬 Modelagem das Entidades
 - Usuário
