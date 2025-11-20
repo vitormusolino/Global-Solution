@@ -5,12 +5,12 @@ API REST desenvolvida com Java 21 + Spring Boot 3, utilizando arquitetura em cam
 
 ## 🔧 Arquitetura do Projeto
 src/
- ├── controller/   → Endpoints REST
- ├── service/      → Regras de negócio
- ├── repository/   → Interfaces JPA
- ├── domain/       → Entidades
- ├── dto/          → Objetos de transferência
- └── exception/    → Tratamento de erros
+ ├── controller/ → Endpoints REST
+ ├── service/ → Regras de negócio
+ ├── repository/ → Interfaces JPA
+ ├── domain/ → Entidades
+ ├── dto/ → Objetos de transferência
+ └── exception/ → Tratamento de erros
 
  ---
 
@@ -93,5 +93,14 @@ mysql-connector-j
 spring-boot-starter-test
 mockito-core
 
+---
+
 ## 🔄 Fluxo Interno da Aplicação
 Controller → Service → Repository → MySQL
+
+---
+
+# 📊 Cobertura de Testes (Jacoco)
+Gerado automaticamente ao rodar:
+
+mvn test
