@@ -17,44 +17,44 @@ src/
 
 ## Padrões utilizados:
 
--DTO Pattern,
--Service Layer,
--Repository Pattern,
--Exception Handling centralizado
+- DTO Pattern
+- Service Layer,
+- Repository Pattern,
+- Exception Handling centralizado
 
 ---
 
 ## 🗄️ Banco de Dados
 
--MySQL 8
--ORM: Hibernate (Spring Data JPA)
--Configuração via application.yml
--ddl-auto: update para sincronizar o schema
--Inserções iniciais via data.sql
+- MySQL 8
+- ORM: Hibernate (Spring Data JPA)
+- Configuração via application.yml
+- ddl-auto: update para sincronizar o schema
+- Inserções iniciais via data.sql
 
 ---
 
 ## 🧬 Modelagem das Entidades
--Usuário
+- Usuário
 id, nome, email, senha, perfil
 
--Trilha
+- Trilha
 id, titulo, categoria, cargaHoraria, nivel
 
--Inscrição
+- Inscrição
 id, usuarioId, trilhaId
 
 ---
 
 ## 🚀 Estrutura da API REST
 
--Controllers estruturados com @RestController
--Validações usando @Valid + Jakarta Validation
--Respostas com ResponseEntity
--CRUD completo para:
--Usuário
--Trilha
--Inscrição
+- Controllers estruturados com @RestController
+- Validações usando @Valid + Jakarta Validation
+- Respostas com ResponseEntity
+- CRUD completo para:
+- Usuário
+- Trilha
+- Inscrição
 
 ---
 
@@ -62,22 +62,22 @@ id, usuarioId, trilhaId
 
 Implementado com @ControllerAdvice
 Respostas padronizadas seguindo HTTP Codes:
--400 – erros de validação
--404 – recurso não encontrado
--500 – erros internos
+- 400 – erros de validação
+- 404 – recurso não encontrado
+- 500 – erros internos
 
 ---
 
 ## 🧪 Testes Unitários
 
 Tecnologias utilizadas:
--JUnit 5
--Mockito (mock de repositórios)
+- JUnit 5
+- Mockito (mock de repositórios)
 Os testes cobrem:
--Métodos de serviço
--Fluxos positivos e negativos
--Verificação de comportamento (verify)
--Exemplo de teste (formato sintético):
+- Métodos de serviço
+- Fluxos positivos e negativos
+- Verificação de comportamento (verify)
+- Exemplo de teste (formato sintético):
 
 when(repository.save(any())).thenReturn(usuario);
 Usuario resultado = service.salvar(dto);
@@ -87,13 +87,14 @@ verify(repository).save(any());
 ---
 
 ## 📦 Principais Dependências
+```bash
 spring-boot-starter-web
 spring-boot-starter-data-jpa
 spring-boot-starter-validation
 mysql-connector-j
 spring-boot-starter-test
 mockito-core
-
+```
 ---
 
 ## 🔄 Fluxo Interno da Aplicação
@@ -103,5 +104,6 @@ Controller → Service → Repository → MySQL
 
 # 📊 Cobertura de Testes (Jacoco)
 Gerado automaticamente ao rodar:
-
+```bash
 mvn test
+```
