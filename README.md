@@ -4,6 +4,7 @@
 API REST desenvolvida com Java 21 + Spring Boot 3, utilizando arquitetura em camadas, MySQL e testes unitários com JUnit + Mockito.
 
 ## 🔧 Arquitetura do Projeto
+```bash
 src/
  ├── controller/ → Endpoints REST
  ├── service/ → Regras de negócio
@@ -11,7 +12,7 @@ src/
  ├── domain/ → Entidades
  ├── dto/ → Objetos de transferência
  └── exception/ → Tratamento de erros
-
+```
  ---
 
 ## Padrões utilizados:
