@@ -17,9 +17,9 @@ src/
 
 ## Padrões utilizados:
 
--DTO Pattern
--Service Layer
--Repository Pattern
+-DTO Pattern,
+-Service Layer,
+-Repository Pattern,
 -Exception Handling centralizado
 
 ---
