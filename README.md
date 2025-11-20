@@ -1,89 +1,97 @@
-##🧩 Neuro Mentor – Documentação Técnica
+# 🧩 Neuro Mentor – Documentação Técnica
 
-#API REST desenvolvida em Java 21 + Spring Boot 3, utilizando arquitetura em camadas, MySQL e testes unitários com JUnit + Mockito.
 
-#📦 Arquitetura do Projeto
-controller/  → Endpoints REST
-service/     → Regras de negócio
-repository/  → Interfaces JPA
-domain/      → Entidades persistidas
-dto/         → Objetos de transferência de dados
-exception/   → Tratamento global de erros
+API REST desenvolvida com Java 21 + Spring Boot 3, utilizando arquitetura em camadas, MySQL e testes unitários com JUnit + Mockito.
 
-#Principais padrões:
+## 🔧 Arquitetura do Projeto
+src/
+ ├── controller/   → Endpoints REST
+ ├── service/      → Regras de negócio
+ ├── repository/   → Interfaces JPA
+ ├── domain/       → Entidades
+ ├── dto/          → Objetos de transferência
+ └── exception/    → Tratamento de erros
 
-DTO Pattern
+ ---
 
-Service Layer Pattern
+## Padrões utilizados:
 
-Repository Pattern
+-DTO Pattern
+-Service Layer
+-Repository Pattern
+-Exception Handling centralizado
 
-Exception Handling centralizado
+---
 
-#🗄️ Banco de Dados
+## 🗄️ Banco de Dados
 
-MySQL 8
+-MySQL 8
+-ORM: Hibernate (Spring Data JPA)
+-Configuração via application.yml
+-ddl-auto: update para sincronizar o schema
+-Inserções iniciais via data.sql
 
-ORM: Hibernate + Spring Data JPA
+---
 
-Configuração via application.yml
-
-ddl-auto: update para manter o schema sincronizado
-
-data.sql para carga inicial
-
-#🧬 Modelagem
-Usuário
+## 🧬 Modelagem das Entidades
+-Usuário
 id, nome, email, senha, perfil
 
-Trilha
+-Trilha
 id, titulo, categoria, cargaHoraria, nivel
 
-Inscrição
+-Inscrição
 id, usuarioId, trilhaId
 
-#🚀 API REST
+---
 
-Controllers com @RestController, @RequestMapping
+## 🚀 Estrutura da API REST
 
-Validação com @Valid + Jakarta Validation
+-Controllers estruturados com @RestController
+-Validações usando @Valid + Jakarta Validation
+-Respostas com ResponseEntity
+-CRUD completo para:
+-Usuário
+-Trilha
+-Inscrição
 
-Respostas via ResponseEntity
+---
 
-Padrão CRUD para todas as entidades
+## 🧯 Tratamento Global de Erros
 
-#🧯 Tratamento de Erros
+Implementado com @ControllerAdvice
+Respostas padronizadas seguindo HTTP Codes:
+-400 – erros de validação
+-404 – recurso não encontrado
+-500 – erros internos
 
-@ControllerAdvice para capturar exceções
+---
 
-Respostas padronizadas (400 / 404 / 500)
+## 🧪 Testes Unitários
 
-#🧪 Testes
+Tecnologias utilizadas:
+-JUnit 5
+-Mockito (mock de repositórios)
+Os testes cobrem:
+-Métodos de serviço
+-Fluxos positivos e negativos
+-Verificação de comportamento (verify)
+-Exemplo de teste (formato sintético):
 
-JUnit 5 + Mockito
+when(repository.save(any())).thenReturn(usuario);
+Usuario resultado = service.salvar(dto);
+assertEquals("Ana", resultado.getNome());
+verify(repository).save(any());
 
-Mock de repositórios
+---
 
-Testes unitários nas Services
-
-Verificação de comportamento (verify) e cenários de exceção
-
-#🔧 Dependências Principais
-
+## 📦 Principais Dependências
 spring-boot-starter-web
-
 spring-boot-starter-data-jpa
-
 spring-boot-starter-validation
-
 mysql-connector-j
-
 spring-boot-starter-test
-
 mockito-core
 
-🔄 Fluxo Interno
+## 🔄 Fluxo Interno da Aplicação
 Controller → Service → Repository → MySQL
-
-
-Controllers recebem DTOs, services processam e repositories persistem.
